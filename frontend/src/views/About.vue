@@ -1,5 +1,5 @@
 <template>
-  <div>user view</div>
+  <div>This is my about view</div>
 </template>
 
 <script>

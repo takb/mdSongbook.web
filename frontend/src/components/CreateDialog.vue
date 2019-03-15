@@ -1,9 +1,7 @@
 <template>
   <v-dialog v-model="visible" width="800px">
     <v-card>
-      <v-card-title
-        class="grey lighten-4 py-4 title"
-      >
+      <v-card-title class="grey lighten-4 py-4 title" >
         Create contact
       </v-card-title>
       <v-container grid-list-sm class="pa-4">
@@ -65,10 +63,9 @@
 </template>
 
 <script>
-export default {
-  name: 'dialog',
-  props: {
-    visible: Boolean
-  },
-}
+  export default {
+    props: {
+      visible: Boolean
+    },
+  }
 </script>

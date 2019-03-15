@@ -1,13 +1,12 @@
 <template>
-  <HelloWorld />
+  <MarkFlatEditor />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
+  import MarkFlatEditor from '../components/MarkFlatEditor'
   export default {
     components: {
-      HelloWorld
+      MarkFlatEditor
     }
   }
 </script>

@@ -4,16 +4,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-import VueShowdown from 'vue-showdown'
-import './showdown.ext-sbmd'
-
-Vue.use(VueShowdown, {
-  options: {
-    emoji: false,
-  },
-})
+import Markflat from './plugins/markflat'
+Vue.use(Markflat);
 Vue.config.productionTip = false
-
 new Vue({
   router,
   store,

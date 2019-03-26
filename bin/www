@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('mdsongbook.web:server');
 var http = require('http');
 
@@ -54,6 +54,7 @@ function normalizePort(val) {
  */
 
 function onError(error) {
+  console.log(error)
   if (error.syscall !== 'listen') {
     throw error;
   }

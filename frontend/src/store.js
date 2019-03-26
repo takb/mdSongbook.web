@@ -6,7 +6,7 @@ export default new Vuex.Store({
   state: {
     showDrawer: false,
     minifyDrawer: false,
-    user: {}
+    user: {},
   },
   mutations: {
     showDrawer(state, val) {
@@ -39,6 +39,8 @@ export default new Vuex.Store({
         dispatch(action.do, action.param);
       if (action.goto)
         Vue.prototype.$router.push(action.goto);
-    }
+    },
+    // init({commit}) {
+    // },
   }
 })

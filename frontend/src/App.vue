@@ -44,6 +44,9 @@
         { icon: 'phonelink', text: 'App downloads' },
       ]
     }),
+    // created() {
+    //   this.$store.dispatch('init');
+    // }
   }
 </script>
 

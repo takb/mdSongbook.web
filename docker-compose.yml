@@ -1,0 +1,37 @@
+version: '3'
+services:
+  couchbase:
+    build: ./couchbase
+    image: mb-cb
+    ports:
+      - "8091:8091"
+    volumes:
+      - "./cbdata:/opt/couchbase/var"
+    networks:
+      - markflat
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    env_file:
+      - config.env
+  node:
+    build: .
+    image: mb-node
+    ports:
+      - "8080:8080"
+    networks:
+      - markflat
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    env_file:
+      - config.env
+networks:
+  markflat:
+    driver: bridge

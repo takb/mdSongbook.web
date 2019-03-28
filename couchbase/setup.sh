@@ -40,9 +40,9 @@ if ! couchbase-cli server-list -c 127.0.0.1:8091 -u "${CB_ADMIN_USER}" -p "${CB_
     echo "* Setting up services"
     curl -sS -X POST http://127.0.0.1:8091/node/controller/setupServices -d "services=${CB_SERVICES}"
     echo "* Setting up storage"
-    curl -sS -X POST http://127.0.0.1:8091/settings/indexes -d "storageMode=forestdb"
+    curl -sS -X POST http://127.0.0.1:8091/settings/indexes -d "storageMode=forestdb" | python -c 'import json,sys; print("\n".join(["  %s: %s" % (k, v) for k, v in json.load(sys.stdin).items()]))'
     echo "* Setting up credentials and port"
-    curl -sS -X POST http://127.0.0.1:8091/settings/web -d "username=${CB_ADMIN_USER}&password=${CB_ADMIN_PWD}&port=8091" -i
+    curl -sS -X POST http://127.0.0.1:8091/settings/web -d "username=${CB_ADMIN_USER}&password=${CB_ADMIN_PWD}&port=8091" -i | python -c 'import json,sys; print("\n".join(["  %s: %s" % (k, v) for k, v in json.load(sys.stdin).items()]))'
     # fi
 fi
 

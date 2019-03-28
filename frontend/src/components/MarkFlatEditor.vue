@@ -36,6 +36,7 @@ end&nbsp;this&nbsp;chorus&nbsp;&nbsp;<br>
       }
     },
     methods: {
+      
       insertAtSelection(text) {
         var sel = window.getSelection();
         var range = sel.getRangeAt(0);

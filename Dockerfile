@@ -1,5 +1,6 @@
 # START FRONTEND BUILDING
-FROM node:alpine as builder
+FROM node as builder
+RUN npm install @vue/cli -g
 
 COPY frontend/package.json /frontend/package.json
 WORKDIR /frontend
@@ -9,9 +10,11 @@ COPY frontend/ /frontend/
 RUN npm run build
 
 # START APP IMAGE
-FROM node:alpine as app
+FROM node as app
 
-RUN apk add --no-cache tini
+ENV TINI_VERSION v0.18.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
 RUN npm install pm2 -g
 
 COPY package.json /app/package.json
@@ -25,6 +28,6 @@ ENV PORT 8080
 EXPOSE 8080
 USER node
 
-ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/tini", "--"]
 
 CMD ["pm2", "start", "processes.json", "--no-daemon"]

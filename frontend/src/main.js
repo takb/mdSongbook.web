@@ -4,8 +4,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './registerServiceWorker'
-import Markflat from './plugins/markflat'
-Vue.use(Markflat);
+import MarkFlat from 'markflat.vue'
+Vue.use(MarkFlat, {mbAddStyle: true, mbEnableZoom: true})
 Vue.config.productionTip = false
 new Vue({
   router,

@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <drawer :items="drawerItems"></drawer>
     <toolbar :items="toolbarMenuItems"></toolbar>
+    <drawer :items="drawerItems"></drawer>
     <v-content>
       <router-view></router-view>
     </v-content>

@@ -12,7 +12,7 @@ const app = express();
 // app.use(forceHttps());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'frontend')));
+app.use(express.static(path.join(__dirname, '../frontend/dist/')));
 app.use('/backend', backendRoute);
 app.use('/user', userRoute);
 // Handle 404

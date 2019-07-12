@@ -21,7 +21,7 @@ COPY package.json /app/package.json
 WORKDIR /app
 RUN npm i --production
 
-COPY --from=builder /frontend/dist /app/frontend
+COPY --from=builder /frontend/dist /app/frontend/dist
 
 WORKDIR /app
 ENV PORT 8080
